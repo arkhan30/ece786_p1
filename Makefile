@@ -8,8 +8,8 @@ build: quamsimV1
 quamsimV1.o:quamsimV1.cu
 	$(NVCC) $(INCLUDES) $(CCFLAGS) $(GENCODE_FLAGS) -o $@ -c $<
 
-quamsimV1: quamsimV1.o
-$(NVCC) $(LDFLAGS) $(EXTRA_NVCCFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
+quamsimV1: quamsimV1.o	
+	$(NVCC) $(LDFLAGS) $(EXTRA_NVCCFLAGS) $(GENCODE_FLAGS) -o $@ $+ $(LIBRARIES)
 
 run: build
 	$(EXEC) ./quamsimV1
